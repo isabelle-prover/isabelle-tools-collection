@@ -1,0 +1,8 @@
+title = Isabelle Tools Collection
+module = $ISABELLE_TOOLS_HOME/lib/classes/isabelle_tools_collection.jar
+requirements = \
+  env:ISABELLE_SCALA_JAR
+sources = \
+  src/ci_notify.scala
+services = \
+  isabelle.tools_collection.CI_Builds

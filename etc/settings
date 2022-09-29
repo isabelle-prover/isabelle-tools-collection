@@ -1,0 +1,3 @@
+ISABELLE_TOOLS_HOME="$COMPONENT"
+
+init_components "$ISABELLE_HOME_USER/contrib" "$ISABELLE_TOOLS_HOME/admin/components"
