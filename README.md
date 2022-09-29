@@ -1,7 +1,7 @@
 # Isabelle Tools Collection
 This is a collection of maintained [Isabelle](https://isabelle.in.tum.de) add-on tools.
 Most are Isabelle/Scala components that are either very niche, too experimental,
-or not stable enough, to have made it into the distribution.
+or not stable enough, to have made it into the distribution (yet).
 
 Each tool resides in its own repository.
 This page merely gives an overview,

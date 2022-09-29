@@ -34,7 +34,7 @@ object CI_Notify {
         new URL("https://api.github.com/repos/isabelle-prover/isabelle-linter/dispatches"),
         Map(
           "Accept" -> "application/vnd.github+json",
-          "Authorization" -> ("Bearer " + System.getProperty("github.dispatcher_token"))),
+          "Authorization" -> ("Bearer " + System.getProperty("github.dispatch_token"))),
         "{\"event_type\":\"isabelle-update\"}")
       CI_Build.Result.ok
 
