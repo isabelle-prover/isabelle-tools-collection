@@ -30,14 +30,17 @@ object CI_Notify {
 
   def dispatch: CI_Build.Result = {
     try {
+      // linter (github action)
       post(
         new URL("https://api.github.com/repos/isabelle-prover/isabelle-linter/dispatches"),
         Map(
           "Accept" -> "application/vnd.github+json",
           "Authorization" -> ("Bearer " + System.getProperty("github.dispatch_token"))),
         "{\"event_type\":\"isabelle-update\"}")
-      CI_Build.Result.ok
 
+      // new tools here
+
+      CI_Build.Result.ok
     } catch {
       case ERROR(msg) =>
         println("POST request failed: " + quote(msg))

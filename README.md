@@ -10,4 +10,10 @@ This page merely gives an overview,
 and provides tooling to trigger ci pipelines on Isabelle changes.
 All tools have a status badge indicating whether they work with the latest Isabelle development version.
 
-## [Isabelle Linter](https://github.com/isabelle-prover/isabelle-linter) ![status](https://github.com/isabelle-prover/isabelle-linter/actions/workflows/build.yml/badge.svg)
+## Tool list
+### [Isabelle Linter](https://github.com/isabelle-prover/isabelle-linter) ![status](https://github.com/isabelle-prover/isabelle-linter/actions/workflows/build.yml/badge.svg)
+
+## Adding a tool to the collection
+If you maintain an Isabelle tool, you can add it to the collection as follows:
+1. Add code to [ci_notify](src/ci_notify.scala) (inside dispatch method, where commented) to trigger your build on Isabelle changes
+2. Add your tool with link and build badge to the list
