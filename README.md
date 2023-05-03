@@ -14,7 +14,9 @@ All tools have a status badge indicating whether they work with the latest Isabe
 ### [Isabelle Linter](https://github.com/isabelle-prover/isabelle-linter) ![status](https://github.com/isabelle-prover/isabelle-linter/actions/workflows/build.yml/badge.svg)
 Isar linter for Isabelle/HOL.
 ### [Isabelle Context Build](https://github.com/isabelle-prover/isabelle-context-build) ![status](https://github.com/isabelle-prover/isabelle-context-build/actions/workflows/build.yml/badge.svg)
-Contextualized build tool with slurm cluster build.
+Contextualized build tool with slurm cluster build (currently not maintained as in the process of being integrated into the distribution).
+### [FindFacts](https://api.github.com/repos/Dacit/findfacts) ![status](https://api.github.com/repos/Dacit/findfacts/actions/workflows/build.yml/badge.svg)
+A search engine for Isabelle.
 
 ## Adding a tool to the collection
 If you maintain an Isabelle tool, you can add it to the collection as follows:

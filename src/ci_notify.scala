@@ -46,6 +46,14 @@ object CI_Notify {
           "Authorization" -> ("Bearer " + System.getProperty("github.dispatch_token"))),
         "{\"event_type\":\"isabelle-update\"}")
 
+      // findfacts
+      post(
+        new URL("https://api.github.com/repos/Dacit/findfacts/dispatches"),
+        Map(
+          "Accept" -> "application/vnd.github+json",
+          "Authorization" -> ("Bearer " + System.getProperty("github.dispatch_token"))),
+        "{\"event_type\":\"isabelle-update\"}")
+
       // new tools here
 
       CI_Build.Result.ok
