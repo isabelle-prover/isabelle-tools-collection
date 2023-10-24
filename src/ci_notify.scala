@@ -28,14 +28,14 @@ object CI_Notify {
       case _: IOException => error("Could not read from " + url.toString)
     }
 
-  def dispatch: CI_Build.Result = {
+  def dispatch(options: Options): CI_Build.Result = {
     try {
       // linter (github action)
       post(
         new URL("https://api.github.com/repos/isabelle-prover/isabelle-linter/dispatches"),
         Map(
           "Accept" -> "application/vnd.github+json",
-          "Authorization" -> ("Bearer " + System.getProperty("github.dispatch_token"))),
+          "Authorization" -> ("Bearer " + options.string("ci_github_dispatch_token"))),
         "{\"event_type\":\"isabelle-update\"}")
 
       // context build (github action)
@@ -43,7 +43,7 @@ object CI_Notify {
         new URL("https://api.github.com/repos/isabelle-prover/isabelle-context-build/dispatches"),
         Map(
           "Accept" -> "application/vnd.github+json",
-          "Authorization" -> ("Bearer " + System.getProperty("github.dispatch_token"))),
+          "Authorization" -> ("Bearer " + options.string("ci_github_dispatch_token"))),
         "{\"event_type\":\"isabelle-update\"}")
 
       // findfacts
@@ -51,7 +51,7 @@ object CI_Notify {
         new URL("https://api.github.com/repos/Dacit/findfacts/dispatches"),
         Map(
           "Accept" -> "application/vnd.github+json",
-          "Authorization" -> ("Bearer " + System.getProperty("github.dispatch_token"))),
+          "Authorization" -> ("Bearer " + options.string("ci_github_dispatch_token"))),
         "{\"event_type\":\"isabelle-update\"}")
 
       // new tools here
@@ -67,7 +67,8 @@ object CI_Notify {
   val ci_notify = CI_Build.Job(
     "notify", "notifies external ci pipelines",
     CI_Build.Profile(1, 1, false),
-    CI_Build.Build_Config(documents = false, clean = false, post_hook = (_, _) => dispatch)
+    CI_Build.Build_Config(
+      documents = false, clean = false, post_hook = (_, options, _) => dispatch(options))
   )
 }
 

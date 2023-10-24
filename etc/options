@@ -1,0 +1,5 @@
+(* :mode=isabelle-options: *)
+
+section "CI Integration"
+
+option ci_github_dispatch_token : string = ""
